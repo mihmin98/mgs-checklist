@@ -4,6 +4,7 @@ export const itemData: Item[] = [
   {
     name: 'SOCOM',
     type: 'WEAPON',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Heliport - Truck',
@@ -26,6 +27,7 @@ export const itemData: Item[] = [
   {
     name: 'FA-MAS',
     type: 'WEAPON',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B2',
@@ -48,6 +50,7 @@ export const itemData: Item[] = [
   {
     name: 'PSG-1',
     type: 'WEAPON',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar B2 Armory - Top Left Room',
@@ -58,6 +61,7 @@ export const itemData: Item[] = [
   {
     name: 'Nikita',
     type: 'WEAPON',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar B2 Armory - Top Right Room',
@@ -72,6 +76,7 @@ export const itemData: Item[] = [
   {
     name: 'Stinger',
     type: 'WEAPON',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Communication Tower Connecting Bridge',
@@ -444,12 +449,13 @@ export const itemData: Item[] = [
     ]
   },
   {
-    name: 'Thremal Goggles',
+    name: 'Thermal Goggles',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar 2F - Right Bottom Room',
-        requiredCardLevel: 3
+        requiredCardLevel: 0
       },
       {
         location: 'Nuclear Warhead Storage Building B2',
@@ -460,6 +466,7 @@ export const itemData: Item[] = [
   {
     name: 'Night Vision Goggles',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B2',
@@ -474,6 +481,7 @@ export const itemData: Item[] = [
   {
     name: 'Cardboard Box A',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar 2F - Left Room',
@@ -484,6 +492,7 @@ export const itemData: Item[] = [
   {
     name: 'Cardboard Box B',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B1',
@@ -494,6 +503,7 @@ export const itemData: Item[] = [
   {
     name: 'Cardboard Box C',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Snow Field - Left Top Room',
@@ -504,6 +514,7 @@ export const itemData: Item[] = [
   {
     name: 'Mine Detector',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar 2F - Right Top Room',
@@ -522,6 +533,7 @@ export const itemData: Item[] = [
   {
     name: 'Gas Mask',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B2',
@@ -532,6 +544,7 @@ export const itemData: Item[] = [
   {
     name: 'Body Armor',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B2',
@@ -568,6 +581,7 @@ export const itemData: Item[] = [
   {
     name: 'Medicine',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B1',
@@ -578,6 +592,7 @@ export const itemData: Item[] = [
   {
     name: 'Rope',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Communication Tower A B3',
@@ -588,6 +603,7 @@ export const itemData: Item[] = [
   {
     name: 'Suppressor',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar 1F - Right Room',
@@ -598,6 +614,7 @@ export const itemData: Item[] = [
   {
     name: 'Camera',
     type: 'ITEM',
+    requiredForProgression: true,
     locations: [
       {
         location: 'Tank Hangar B2 - Armory South',

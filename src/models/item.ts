@@ -6,14 +6,17 @@ export class Item {
   public type: ItemType;
   public locations: ItemLocation[];
   public imgPath?: string;
+  public requiredForProgression?: boolean;
 
   constructor(name: string,
               type: ItemType,
               locations: ItemLocation[],
-              imgPath?: string) {
+              imgPath?: string,
+              requiredForProgression?: boolean,) {
     this.name = name;
     this.type = type;
     this.locations = locations;
     this.imgPath = imgPath;
+    this.requiredForProgression = requiredForProgression;
   }
 }
