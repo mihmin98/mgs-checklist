@@ -1,6 +1,8 @@
-import type { Item } from "../models/item";
+import { Item } from "../models/item";
+import { ItemLocation } from "../models/item-location";
+import type { ItemType } from "../models/item-type";
 
-export const itemData: Item[] = [
+const itemDataJSON = [
   {
     name: 'SOCOM',
     type: 'WEAPON',
@@ -623,3 +625,11 @@ export const itemData: Item[] = [
     ]
   },
 ];
+
+// export const itemData: Item[] = [];
+export const itemData: Item[] = itemDataJSON.map(item => {
+  const locations = item.locations.map(location => 
+    new ItemLocation(location.location, location.requiredCardLevel));
+  
+  return new Item(item.name, item.type as ItemType, locations, undefined, item.requiredForProgression);
+});

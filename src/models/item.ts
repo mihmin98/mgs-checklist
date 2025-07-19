@@ -19,4 +19,13 @@ export class Item {
     this.imgPath = imgPath;
     this.requiredForProgression = requiredForProgression;
   }
+
+  public minimumLevel(): number {
+    if (this.locations.length === 0) {
+      return 10;
+    }
+    
+    const locationLevels = this.locations.map(location => location.requiredCardLevel);
+    return Math.min(...locationLevels);
+  }
 }
