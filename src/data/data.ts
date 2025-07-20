@@ -1,8 +1,6 @@
-import { Item } from "../models/item";
-import { ItemLocation } from "../models/item-location";
-import type { ItemType } from "../models/item-type";
+import { Item, type ItemDataJSON } from "../models/item";
 
-const itemDataJSON = [
+const itemDataJSON: ItemDataJSON[] = [
   {
     name: 'SOCOM',
     type: 'WEAPON',
@@ -472,7 +470,7 @@ const itemDataJSON = [
     locations: [
       {
         location: 'Nuclear Warhead Storage Building B2',
-        requiredCardLevel: 3
+        requiredCardLevel: 4
       },
       {
         location: 'Nuclear Warhead Storage Building B1',
@@ -626,10 +624,4 @@ const itemDataJSON = [
   },
 ];
 
-// export const itemData: Item[] = [];
-export const itemData: Item[] = itemDataJSON.map(item => {
-  const locations = item.locations.map(location => 
-    new ItemLocation(location.location, location.requiredCardLevel));
-  
-  return new Item(item.name, item.type as ItemType, locations, undefined, item.requiredForProgression);
-});
+export const itemData: Item[] = itemDataJSON.map(itemJSON => Item.fromJSON(itemJSON));
