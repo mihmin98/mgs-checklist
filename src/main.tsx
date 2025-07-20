@@ -7,7 +7,7 @@ import App from './App.tsx'
 import './scss/styles.scss'
 
 // Import all of Bootstrap's JS
-// import * as bootstrap from 'bootstrap'
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
