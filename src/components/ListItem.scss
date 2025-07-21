@@ -1,0 +1,28 @@
+.item-card {
+  padding: 8px;
+  margin: 8px;
+}
+
+.item-card-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-card-body-title {
+  display: flex;
+}
+
+.item-card-checkbox {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.item-card-locations {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.item-card-location {
+  list-style-type: none;
+  padding: 2px;
+}

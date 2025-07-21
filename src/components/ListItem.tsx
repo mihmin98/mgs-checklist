@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Item } from "../models/item";
 import { UserDataService } from "../services/user-data-service";
 import { UtilsService } from "../services/utils";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleChevronDown, faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
+
+import './ListItem.scss'
 
 type Props = {
   item: Item,
@@ -13,6 +17,7 @@ export default function ListItem({ item, checkable }: Props) {
   const [checked, setChecked] = useState(initialCheckedState);
   const [expanded, setExpanded] = useState(false);
 
+  const collapseRef = useRef(null);
   const collapseId = UtilsService.convertStringToIdFormat(`${item.name}_collapse`);
   const checkboxId = UtilsService.convertStringToIdFormat(`${item.name}_checkbox`);
 
@@ -21,41 +26,59 @@ export default function ListItem({ item, checkable }: Props) {
     setChecked(UserDataService.isItemObtained(item.name));
   }
 
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  }
+  useEffect(() => {
+    const collapseEl = collapseRef.current;
+    const handleShow = () => setExpanded(true);
+    const handleHide = () => setExpanded(false);
+
+    collapseEl.addEventListener('show.bs.collapse', handleShow);
+    collapseEl.addEventListener('hide.bs.collapse', handleHide);
+
+    return () => {
+      collapseEl.removeEventListener('show.bs.collapse', handleShow);
+      collapseEl.removeEventListener('hide.bs.collapse', handleHide);
+    };
+  }, []);
 
   const locationsList = item.locations.map(location =>
-    <li key={`${item.name}|${location.requiredCardLevel}|${location.location}`} style={{ listStyleType: 'none', padding: '2px' }}>
+    <div key={`${item.name}|${location.requiredCardLevel}|${location.location}`} className="item-card-location">
       <span>Card Level {location.requiredCardLevel} - {location.location}</span>
-    </li>
+    </div>
   );
 
 
   return (
-    <div style={{ padding: '8px', margin: '8px' }} className="card">
+    <div className="card item-card">
       <div>
-        {checkable &&
-          <input type='checkbox' checked={checked} onChange={toggleChecked} id={checkboxId} name={checkboxId} />
-        }
-        <b style={{ padding: '8px', textDecorationLine: checked ? 'line-through' : 'none' }} >{item.name} - {item.type}</b>
-        <button className="btn btn-primary"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target={`#${collapseId}`}
-          aria-expanded="false"
-          aria-controls="collapseExample">
-          Toggle Button
-        </button>
-        <div className="collapse" id={collapseId}>
+        <div className="item-card-body">
+          <div className="item-card-body-title">
+            {checkable &&
+              <input type='checkbox'
+                className="item-card-checkbox"
+                checked={checked}
+                onChange={toggleChecked}
+                id={checkboxId}
+                name={checkboxId} />
+            }
+            <b style={{ padding: '8px', textDecorationLine: checked ? 'line-through' : 'none' }} >{item.name} - {item.type}</b>
+          </div>
+          <button className="btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target={`#${collapseId}`}
+            aria-expanded={expanded}
+            aria-controls={collapseId}>
+            <FontAwesomeIcon icon={expanded ? faCircleChevronUp : faCircleChevronDown} />
+          </button>
+        </div>
+        <div className="collapse" id={collapseId} ref={collapseRef}>
           <div className="card card-body">
             <b>Locations</b>
-            <ul style={{ marginBottom: '4px', marginTop: '4px' }}>
+            <div className="item-card-locations">
               {locationsList}
-            </ul>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   );
