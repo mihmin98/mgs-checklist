@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import type { Item } from "../models/item";
-import { UserDataService } from "../services/user-data-service";
-import { UtilsService } from "../services/utils";
+import type { Item } from "../../models/item";
+import { UserDataService } from "../../services/user-data-service";
+import { UtilsService } from "../../services/utils";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronDown, faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-import './ListItem.scss'
+import './ItemCard.scss'
 
 type Props = {
   item: Item,
   checkable: boolean
 };
 
-export default function ListItem({ item, checkable }: Props) {
+export default function ItemCard({ item, checkable }: Props) {
   const initialCheckedState = checkable ? UserDataService.isItemObtained(item.name) : false;
   const [checked, setChecked] = useState(initialCheckedState);
   const [expanded, setExpanded] = useState(false);

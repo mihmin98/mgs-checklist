@@ -1,5 +1,5 @@
 import { itemData } from "../data/data";
-import ListItem from "./ListItem";
+import ItemCard from "./ItemCard/ItemCard";
 
 export default function ProgressionList() {
   const progressionItems = itemData.filter(item => item.requiredForProgression === true);
@@ -9,7 +9,7 @@ export default function ProgressionList() {
     const itemsForCardLevel = progressionItems.filter(item => item.minimumLevel === cardLevel);
 
     const itemList = itemsForCardLevel.map(item =>
-      <ListItem key={item.name} item={item} checkable={true} />
+      <ItemCard key={item.name} item={item} checkable={true} />
     );
 
     return (
