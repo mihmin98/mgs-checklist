@@ -1,6 +1,8 @@
-import { appData } from "../data/data";
-import { UtilsService } from "../services/utils";
-import ItemCard from "./ItemCard/ItemCard";
+import { appData } from "../../data/data";
+import { UtilsService } from "../../services/utils";
+import ItemCard from "../ItemCard/ItemCard";
+
+import './ProgressionList.scss';
 
 export default function ProgressionList() {
   const progressionItems = appData.items.filter(item => item.requiredForProgression === true);
@@ -14,7 +16,7 @@ export default function ProgressionList() {
     );
 
     return (
-      <div key={cardLevel} style={{ marginBottom: '2em', backgroundColor: 'lightgrey' }} className="card">
+      <div key={cardLevel} className="card card-level-card">
         <h2>{UtilsService.getCardLevelStr(cardLevel)}</h2>
         <div>
           {itemList}
