@@ -13,5 +13,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     minify: true
-  }
+  },
+  base: '/mgs-checklist/'
 })
