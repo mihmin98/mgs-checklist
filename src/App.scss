@@ -1,8 +1,15 @@
-#root {
+$btn-link-color: rgb(94, 94, 94);
+$btn-link-active-color: rgb(16, 16, 16);
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+#root {
+  width: 100%;
 }
 
 .logo {
@@ -39,4 +46,29 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.btn-nav-link {
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-left: 4px;
+  margin-right: 4px;
+  --bs-btn-color: var(--bs-gray-700);
+  --bs-btn-hover-color: var(--bs-black);
+}
+
+.btn-nav-active-link {
+  text-decoration: underline;
+  --bs-btn-color: var(--bs-black);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
 }

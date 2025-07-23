@@ -1,4 +1,5 @@
 import { itemData } from "../data/data";
+import { UtilsService } from "../services/utils";
 import ItemCard from "./ItemCard/ItemCard";
 
 export default function ProgressionList() {
@@ -14,7 +15,7 @@ export default function ProgressionList() {
 
     return (
       <div key={cardLevel} style={{ margin: '16px', backgroundColor: 'lightgrey' }} className="card">
-        <h2>Card Level {cardLevel}</h2>
+        <h2>{UtilsService.getCardLevelStr(cardLevel)}</h2>
         <div>
           {itemList}
         </div>

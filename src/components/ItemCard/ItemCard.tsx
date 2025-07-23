@@ -3,7 +3,7 @@ import type { Item } from "../../models/item";
 import { UserDataService } from "../../services/user-data-service";
 import { UtilsService } from "../../services/utils";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleChevronDown, faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 import './ItemCard.scss'
 
@@ -42,7 +42,7 @@ export default function ItemCard({ item, checkable }: Props) {
 
   const locationsList = item.locations.map(location =>
     <div key={`${item.name}|${location.requiredCardLevel}|${location.location}`} className="item-card-location">
-      <span>Card Level {location.requiredCardLevel} - {location.location}</span>
+      <span>{UtilsService.getCardLevelStr(location.requiredCardLevel)} - {location.location}</span>
     </div>
   );
 
@@ -68,7 +68,7 @@ export default function ItemCard({ item, checkable }: Props) {
             data-bs-target={`#${collapseId}`}
             aria-expanded={expanded}
             aria-controls={collapseId}>
-            <FontAwesomeIcon icon={expanded ? faCircleChevronUp : faCircleChevronDown} />
+            <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} />
           </button>
         </div>
         <div className="collapse" id={collapseId} ref={collapseRef}>
