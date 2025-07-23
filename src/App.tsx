@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.scss'
 import ProgressionList from './components/ProgressionList'
 import { NavTabEnum } from './models/nav-tab';
+import CodecFrequneciesList from './components/CodecFrequenciesList/CodecFrequenciesList';
 
 function App() {
   const [activeTab, setActiveTab] = useState(NavTabEnum.PROGRESSION);
@@ -31,7 +32,7 @@ function App() {
         {activeTab === NavTabEnum.ITEM_LIST &&
           <div>TODO: Item List</div>}
         {activeTab === NavTabEnum.CODEC_FREQUENCIES &&
-          <div>TODO: Codec Frequencies</div>}
+          <CodecFrequneciesList />}
       </div>
     </div>
   )

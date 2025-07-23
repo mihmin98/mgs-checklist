@@ -14,7 +14,7 @@ export default function ProgressionList() {
     );
 
     return (
-      <div key={cardLevel} style={{ margin: '16px', backgroundColor: 'lightgrey' }} className="card">
+      <div key={cardLevel} style={{ marginBottom: '2em', backgroundColor: 'lightgrey' }} className="card">
         <h2>{UtilsService.getCardLevelStr(cardLevel)}</h2>
         <div>
           {itemList}
