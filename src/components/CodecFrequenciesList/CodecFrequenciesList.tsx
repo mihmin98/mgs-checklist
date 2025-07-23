@@ -3,7 +3,7 @@ import CodecFrequencyCard from "../CodecFrequencyCard/CodecFrequencyCard";
 
 export default function CodecFrequneciesList() {
   const content = appData.codecFrequencies.map(codecFreq => {
-    return <CodecFrequencyCard codecFrequency={codecFreq} />
+    return <CodecFrequencyCard key={codecFreq.frequency} codecFrequency={codecFreq} />
   });
 
   return (
