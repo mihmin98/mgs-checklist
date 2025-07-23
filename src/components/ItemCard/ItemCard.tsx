@@ -31,13 +31,17 @@ export default function ItemCard({ item, checkable }: Props) {
     const handleShow = () => setExpanded(true);
     const handleHide = () => setExpanded(false);
 
-    collapseEl.addEventListener('show.bs.collapse', handleShow);
-    collapseEl.addEventListener('hide.bs.collapse', handleHide);
+    if (collapseEl !== null) {
+      (collapseEl as HTMLElement).addEventListener('show.bs.collapse', handleShow);
+      (collapseEl as HTMLElement).addEventListener('hide.bs.collapse', handleHide);
 
-    return () => {
-      collapseEl.removeEventListener('show.bs.collapse', handleShow);
-      collapseEl.removeEventListener('hide.bs.collapse', handleHide);
-    };
+      return () => {
+        (collapseEl as HTMLElement).removeEventListener('show.bs.collapse', handleShow);
+        (collapseEl as HTMLElement).removeEventListener('hide.bs.collapse', handleHide);
+      };
+    } else {
+      return () => {};
+    }
   }, []);
 
   const locationsList = item.locations.map(location =>
