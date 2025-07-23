@@ -1,6 +1,8 @@
-import { Item, type ItemDataJSON } from "../models/item";
+import { AppData } from "../models/app-data";
+import { CodecFrequency, type CodecFrequencyJSON } from "../models/codec-frequency";
+import { Item, type ItemJSON } from "../models/item";
 
-const itemDataJSON: ItemDataJSON[] = [
+const itemsJSON: ItemJSON[] = [
   {
     name: 'SOCOM',
     type: 'WEAPON',
@@ -624,4 +626,46 @@ const itemDataJSON: ItemDataJSON[] = [
   },
 ];
 
-export const itemData: Item[] = itemDataJSON.map(itemJSON => Item.fromJSON(itemJSON));
+const codecFrequenciesJSON: CodecFrequencyJSON[] = [
+  {
+    name: 'Meryl',
+    frequency: '140.15',
+  },
+  {
+    name: 'Deepthroat',
+    frequency: '140.48',
+  },
+  {
+    name: 'Colonel Campbell',
+    frequency: '140.85',
+  },
+  {
+    name: 'Mei Ling',
+    frequency: '140.96'
+  },
+  {
+    name: 'Otacon',
+    frequency: '141.12'
+  },
+  {
+    name: 'Nastasha Romanenko',
+    frequency: '141.52'
+  },
+  {
+    name: 'Master Miller',
+    frequency: '141.80'
+  },
+  {
+    name: 'Music (MGS Integral only)',
+    frequency: '140.66'
+  },
+  {
+    name: 'Developer messages (MGS Integral only)',
+    frequency: '140.07'
+  },
+];
+
+const itemData: Item[] = itemsJSON.map(itemJSON => Item.fromJSON(itemJSON));
+const codecFrequencies: CodecFrequency[] = codecFrequenciesJSON.map(codecFreqJSON => CodecFrequency.fromJSON(codecFreqJSON));
+
+export const appData: AppData = new AppData(itemData, codecFrequencies);

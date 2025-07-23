@@ -1,7 +1,7 @@
 import { ItemLocation, type ItemLocationJSON } from "./item-location";
 import type { ItemType } from "./item-type";
 
-export interface ItemDataJSON {
+export interface ItemJSON {
   name: string;
   type: ItemType;
   requiredForProgression?: boolean;
@@ -32,7 +32,7 @@ export class Item {
     this.minimumLevel = this.computeMinimumLevel();
   }
 
-  public static fromJSON(json: ItemDataJSON): Item {
+  public static fromJSON(json: ItemJSON): Item {
     const locations = json.locations.map(locationJSON => ItemLocation.fromJSON(locationJSON));
     return new Item(json.name, json.type, locations, json.imgPath, json.requiredForProgression);
   }

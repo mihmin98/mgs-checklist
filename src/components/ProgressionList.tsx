@@ -1,9 +1,9 @@
-import { itemData } from "../data/data";
+import { appData } from "../data/data";
 import { UtilsService } from "../services/utils";
 import ItemCard from "./ItemCard/ItemCard";
 
 export default function ProgressionList() {
-  const progressionItems = itemData.filter(item => item.requiredForProgression === true);
+  const progressionItems = appData.items.filter(item => item.requiredForProgression === true);
   const cardLevels = [...new Set(progressionItems.map(item => item.minimumLevel))].sort((a, b) => a - b);
 
   const content = cardLevels.map(cardLevel => {
